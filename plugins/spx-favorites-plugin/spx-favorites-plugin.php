@@ -12,8 +12,25 @@
  * Text Domain: spxnm-favorites-plugin
  */
 
+use Inc\Base\Activate;
+use Inc\Base\Deactivate;
+
 defined( "ABSPATH" ) or die( "The way is shut. It was made by those who are Dead, and the Dead keep it, until the time comes. The way is shut." );
 
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+}
+
+register_activation_hook(__FILE__, 'activate');
+function activate() {
+	Activate::activate();
+}
+
+register_deactivation_hook(__FILE__,'deactivate');
+function deactivate() {
+	Deactivate::deactivate();
+}
+
+if ( class_exists ('Inc\Init' ) ) {
+	\Inc\Init::registerServices();
 }
