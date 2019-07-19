@@ -8,6 +8,7 @@ class Enqueue extends Controller {
 
 	public function register() {
 		add_action('wp_enqueue_scripts', array( $this, 'custom_styles_and_scripts' ) );
+		add_action('admin_enqueue_scripts', array($this, 'custom_styles_and_scripts') );
 	}
 
 	public function custom_styles_and_scripts() {

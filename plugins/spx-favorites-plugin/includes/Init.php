@@ -7,7 +7,8 @@ class Init {
 
 	private static $services = [
 		Pages\Favorite::class,
-		Base\Enqueue::class
+		Base\Enqueue::class,
+		Pages\Admin::class
 	];
 
 	public static function registerServices() {
